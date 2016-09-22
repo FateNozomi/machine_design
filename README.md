@@ -9,6 +9,7 @@ Enter number of slots:
 ```
 
 The ouput returns array 's'
+
 |Parameters	| Values	|
 |-----------|:-------:|
 |Relative Angle |degree |
