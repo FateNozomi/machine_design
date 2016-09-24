@@ -43,7 +43,7 @@ for k = 0:relativeAngle:(relativeAngle*(SLOTS-1))
         s(3,i) = slotOut - (SLOTS - 3); %assign number of slotOut to row 3
     end
     
-    if sign(k) ~= sign(newAngle)
+    if sign(stage) ~= sign(newAngle)
         % swap slotIn and SlotOut if sign changes between original and
         % converted values
         s([2 3],i) = s([3 2],i);
