@@ -9,7 +9,7 @@ relativeAngle = POLES / SLOTS * 180;
 
 i = 0; % Initialize the column size of array 's'
 slotOut = 3; % Initialize SlotOut value
-s = zeros(4,SLOTS); % Create an array of 3 x SLOTS
+s = zeros(3,SLOTS); % Create an array of 3 x SLOTS
 
 % Create array S with angles, ins and outs.
 %
@@ -31,32 +31,44 @@ for k = 0:relativeAngle:(relativeAngle*(SLOTS-1))
     % Increment the column size of array 's'
     i = i + 1;
     
-    s(1,i) = k; %assign all original angles to row 1
-    s(2,i) = newAngle; %assign all newAngles to row 2
-    s(3,i) = i; %asign number of slotIn to row 3
+    s(1,i) = newAngle; %assign all newAngles to row 1
+    s(2,i) = i; %asign number of slotIn to row 2
     
     slotOut = slotOut + 1; %increase slotOut in every loop
     if (slotOut) <= SLOTS
         % make slotOut start from 4 to total SLOTS
-        s(4,i) = slotOut; %assign number of slotOut to row 4
+        s(3,i) = slotOut; %assign number of slotOut to row 3
     else
-        % reset from 1 if slotOut exceeds total SLOTS 
-        s(4,i) = slotOut - (SLOTS - 3); %assign number of slotOut to row 4
+        % reset from 1 if slotOut exceeds total SLOTS
+        s(3,i) = slotOut - (SLOTS - 3); %assign number of slotOut to row 3
     end
     
     if sign(k) ~= sign(newAngle)
         % swap slotIn and SlotOut if sign changes between original and
         % converted values
-        s([3 4],i) = s([4 3],i);
+        s([2 3],i) = s([3 2],i);
     end
 end
 
-%phase = zeros(3,SLOTS/3,3);
-% z = s(1,:);
-% slotsPerPhase = SLOTS/3;
-% phaseA = zeros(1,slotsPerPhase);
-% for i = 1:slotsPerPhase
-%     [phaseA(i),index] = min(abs(z));
-%     z(idx) = [];
-% end
+%% Reposition the potential coils
+% The potential coils are repositioned for Phase A in array s to the first
+% (slotsPerPhase) columns.
+
+slotsPerPhase = SLOTS/3; %Get the number of slots per phase
+phaseA_abs = zeros(1,slotsPerPhase); %Array to temporary store Phase A values
+
+% In order to find the first (slotsPerPhase) values, we need to shrink the
+% array by removing the previous indexed value.
+
+% Initialize value k required for swapping columns in 's'. This is needed 
+% due to the previous index being removed.
+k = 0;
+for i = 1:slotsPerPhase
+    %
+    [phaseA_abs(i),index] = min(abs(s(1,i:end)));
+    
+    s(:,[i index+k]) = s(:,[index+k i]);
+    
+    k = k + 1;
+end
 end
