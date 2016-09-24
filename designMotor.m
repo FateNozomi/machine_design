@@ -1,4 +1,14 @@
 function final = designMotor()
+%designMotor Finds the winding layout of a machine
+% Version 1.00
+% Created by L
+% 
+% @param POLES
+% @param SLOTS
+% @param nomCoilSpan
+%
+% @return final
+
 polesPrompt = 'Enter number of poles: ';
 slotsPrompt = 'Enter number of slots: ';
 nomCoilSpanPrompt = 'Enter nominal coil span: ';
@@ -37,7 +47,7 @@ for k = 0:relativeAngle:(relativeAngle*(SLOTS-1))
     i = i + 1;
     
     s(1,i) = newAngle; %assign all newAngles to row 1
-    s(2,i) = i; %asign number of slotIn to row 2
+    s(2,i) = i; %assign number of slotIn to row 2
     
     slotOut = slotOut + 1; %increase slotOut in every loop
     if (slotOut) <= SLOTS
