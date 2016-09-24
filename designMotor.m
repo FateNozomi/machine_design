@@ -1,14 +1,16 @@
 function s = designMotor()
 polesPrompt = 'Enter number of poles: ';
 slotsPrompt = 'Enter number of slots: ';
+nomCoilSpanPrompt = 'Enter nominal coil span: ';
 POLES = input(polesPrompt);
 SLOTS = input(slotsPrompt);
+nomCoilSpan = input(nomCoilSpanPrompt);
 
 % find relative angle of all potential coils
 relativeAngle = POLES / SLOTS * 180;
 
 i = 0; % Initialize the column size of array 's'
-slotOut = 3; % Initialize SlotOut value
+slotOut = nomCoilSpan; % Initialize SlotOut value
 s = zeros(3,SLOTS); % Create an array of 3 x SLOTS
 
 % Create array S with angles, ins and outs.
@@ -40,7 +42,7 @@ for k = 0:relativeAngle:(relativeAngle*(SLOTS-1))
         s(3,i) = slotOut; %assign number of slotOut to row 3
     else
         % reset from 1 if slotOut exceeds total SLOTS
-        s(3,i) = slotOut - (SLOTS - 3); %assign number of slotOut to row 3
+        s(3,i) = slotOut - (SLOTS); %assign number of slotOut to row 3
     end
     
     if sign(stage) ~= sign(newAngle)
@@ -63,11 +65,12 @@ phaseA_abs = zeros(1,slotsPerPhase); %Array to temporary store Phase A values
 % Initialize value k required for swapping columns in 's'. This is needed 
 % due to the previous index being removed.
 k = 0;
+z = s; %Assign 's' into a new array 'z' so that 's' remains untouched.
 for i = 1:slotsPerPhase
     %
-    [phaseA_abs(i),index] = min(abs(s(1,i:end)));
+    [phaseA_abs(i),index] = min(abs(z(1,i:end)));
     
-    s(:,[i index+k]) = s(:,[index+k i]);
+    z(:,[i index+k]) = z(:,[index+k i]);
     
     k = k + 1;
 end
