@@ -1,4 +1,4 @@
-function final = designMotor()
+function final = designMotor(POLES, SLOTS, nomCoilSpan)
 %designMotor Finds the winding layout of a machine
 % Version 1.00
 % Created by L
@@ -9,12 +9,12 @@ function final = designMotor()
 %
 % @return final
 
-polesPrompt = 'Enter number of poles: ';
-slotsPrompt = 'Enter number of slots: ';
-nomCoilSpanPrompt = 'Enter nominal coil span: ';
-POLES = input(polesPrompt);
-SLOTS = input(slotsPrompt);
-nomCoilSpan = input(nomCoilSpanPrompt);
+% polesPrompt = 'Enter number of poles: ';
+% slotsPrompt = 'Enter number of slots: ';
+% nomCoilSpanPrompt = 'Enter nominal coil span: ';
+% POLES = input(polesPrompt);
+% SLOTS = input(slotsPrompt);
+% nomCoilSpan = input(nomCoilSpanPrompt);
 
 % POLES = 10;
 % SLOTS = 12;
@@ -95,10 +95,12 @@ for i = 1:SLOTS
     k = k + 1; %increase k to compensate shrinking zAngle and z
 end
 
+% Prelocate 3 empty arrays
 phase = zeros(2,slotsPerPhase,3);
+% Find the offset value for each phase (required by in/out)
 phaseOffset = SLOTS-slotsPerPhase;
 
-%Assign Phase A
+% Assign Phase A
 phaseA = z([2 3],1:slotsPerPhase);
 phase(:,:,1) = phaseA;
 
@@ -116,6 +118,6 @@ phase(:,:,3) = phaseC;
 
 % Assign 's' and 'phase' into a cell array
 final = {s phase};
-fprintf('To view final angle, enter: s = ans{1}\n');
-fprintf('To view winding layout, enter: phase = ans{2}');
+% fprintf('To view final angle, enter: s = ans{1}\n');
+% fprintf('To view winding layout, enter: phase = ans{2}');
 end
