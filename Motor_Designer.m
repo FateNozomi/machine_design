@@ -22,7 +22,7 @@ function varargout = Motor_Designer(varargin)
 
 % Edit the above text to modify the response to help Motor_Designer
 
-% Last Modified by GUIDE v2.5 13-Oct-2016 00:47:13
+% Last Modified by GUIDE v2.5 13-Oct-2016 13:55:32
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;

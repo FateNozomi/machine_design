@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="2277263114" file="D:\Users\Will\Documents\MATLAB\machine_design\Motor_Designer.prj" location="D:\Users\Will\Documents\MATLAB\machine_design" name="Motor_Designer" preferred-package-location="D:\Users\Will\Documents\MATLAB\machine_design\Motor_Designer\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="2646109565" file="C:\Users\L\Documents\MATLAB\machine_design\Motor_Designer.prj" location="C:\Users\L\Documents\MATLAB\machine_design" name="Motor_Designer" preferred-package-location="C:\Users\L\Documents\MATLAB\machine_design\Motor_Designer\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>Motor_Designer</param.appname>
     <param.icon />
     <param.icons />
@@ -8,7 +8,7 @@
     <param.email>wailinnyu@gmail.com</param.email>
     <param.company />
     <param.summary />
-    <param.description>SLEEP EARLY!</param.description>
+    <param.description />
     <param.screenshot />
     <param.guid />
     <param.installpath.string>\Motor_Designer\</param.installpath.string>
@@ -28,7 +28,7 @@
     <param.web.mcr>true</param.web.mcr>
     <param.package.mcr>false</param.package.mcr>
     <param.no.mcr>false</param.no.mcr>
-    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.web.mcr.name>MotorDesigner_web</param.web.mcr.name>
     <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
     <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
     <param.windows.command.prompt>true</param.windows.command.prompt>
@@ -40,6 +40,7 @@
       <param.version />
       <param.company />
       <param.summary />
+      <param.description />
       <param.screenshot />
       <param.guid />
       <param.installpath.string />
@@ -58,7 +59,6 @@
       <param.web.mcr />
       <param.package.mcr />
       <param.no.mcr />
-      <param.web.mcr.name />
       <param.package.mcr.name />
       <param.no.mcr.name />
       <param.windows.command.prompt />
@@ -76,9 +76,9 @@
       <file>${PROJECT_ROOT}\Motor_Designer.fig</file>
     </fileset.depfun>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\Motor_Designer\for_testing" name="readme.txt" optional="true">D:\Users\Will\Documents\MATLAB\machine_design\Motor_Designer\for_testing\readme.txt</file>
-      <file location="${PROJECT_ROOT}\Motor_Designer\for_testing" name="splash.png" optional="false">D:\Users\Will\Documents\MATLAB\machine_design\Motor_Designer\for_testing\splash.png</file>
-      <file location="${PROJECT_ROOT}\Motor_Designer\for_testing" name="Motor_Designer.exe" optional="false">D:\Users\Will\Documents\MATLAB\machine_design\Motor_Designer\for_testing\Motor_Designer.exe</file>
+      <file location="${PROJECT_ROOT}\Motor_Designer\for_testing" name="splash.png" optional="false">C:\Users\L\Documents\MATLAB\machine_design\Motor_Designer\for_testing\splash.png</file>
+      <file location="${PROJECT_ROOT}\Motor_Designer\for_testing" name="Motor_Designer.exe" optional="false">C:\Users\L\Documents\MATLAB\machine_design\Motor_Designer\for_testing\Motor_Designer.exe</file>
+      <file location="${PROJECT_ROOT}\Motor_Designer\for_testing" name="readme.txt" optional="true">C:\Users\L\Documents\MATLAB\machine_design\Motor_Designer\for_testing\readme.txt</file>
     </build-deliverables>
     <workflow />
     <matlab>
