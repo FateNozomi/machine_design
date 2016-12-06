@@ -30,3 +30,5 @@ Below shows the parameters of array 'phase'
 |phase(:,:,1) |Phase A  |
 |phase(:,:,2) |Phase B  |
 |phase(:,:,3) |Phase C  |
+
+The nominal coil span value is given by number of slots per magnet pole.
